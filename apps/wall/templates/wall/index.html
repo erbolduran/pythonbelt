@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quotes Quotesr</title>
+</head>
+<body>
+	<h1>Welcome, {{ user.first_name }}!</h1>
+
+	<form action="{% url 'dashboard' %}" method="POST">
+		{% csrf_token %}
+		Address: <input type="text" name="address">
+		<input type="submit"></input>	
+	</form>
+
+	{% for quote in user.quotes.all %}
+		{{ quote.author }}
+	{% endfor %}
+</body>
+</html>
